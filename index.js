@@ -14,7 +14,5 @@ app.listen(port,function(err)
         console.log(`Error in listen method:${err}`);
         return;
     }
-
     console.log(`Server running successfully on port:${port}`);
-
 })
