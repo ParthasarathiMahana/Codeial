@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 const port = 8000;
 
+app.use(express.static('./assets'));
+
+const expressLayout = require('express-ejs-layouts');
+// before the routes get loaded we need to use epressLayout
+app.use(expressLayout);
+
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
 app.use('/', require('./routes'));
 
 app.set('view engine', 'ejs');
