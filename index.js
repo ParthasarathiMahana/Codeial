@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const port = 8000;
 const db = require("./config/mongoose");
+const cookieParser = require('cookie-parser');
+
+app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
 const expressLayout = require('express-ejs-layouts');
+const { urlencoded } = require('express');
 // before the routes get loaded we need to use epressLayout
 app.use(expressLayout);
 
