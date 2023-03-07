@@ -5,10 +5,18 @@ module.exports.user = function(req, res){
 }
 
 module.exports.signUp = function(req, res){
+    if(req.isAuthenticated())
+    {
+        return res.render('/');
+    }
     return res.render('signUp',{title: "User Signup page"});
 }
 
 module.exports.signIn = function(req, res){
+    if(req.isAuthenticated())
+    {
+        return res.render('/');
+    }
     return res.render('signIn',{title: "User Signin page"});
 }
 
