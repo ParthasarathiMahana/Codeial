@@ -25,8 +25,7 @@ app.use(express.static('./assets'));
 
 const expressLayout = require('express-ejs-layouts');
 const { urlencoded } = require('express');
-const MongoStore = require('connect-mongo');
-// const passport = require('passport');
+// const MongoStore = require('connect-mongo');
 // before the routes get loaded we need to use epressLayout
 app.use(expressLayout);
 
