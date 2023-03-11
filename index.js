@@ -1,43 +1,46 @@
 const express = require('express');
-const app = express();
-const port = 8000;
-const db = require("./config/mongoose");
 const cookieParser = require('cookie-parser');
-
+const app = express();
+const port = 7000;
+const expressLayout = require('express-ejs-layouts');
+const db = require("./config/mongoose");
+// FOR SESSION COOKIES
 const session = require('express-session');
-const passport = require('passport');
-const passportLocal = require('./config/passport');
+// const passport = require('passport');
+
+const passport = require('./config/passport-local');
 const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
 
 app.use(sassMiddleware({
-    src: '/assets/scss',
-    dest: 'assets/css',
+    src: './assets/scss',
+    dest: './assets/css',
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
 }));
 
 app.use(express.urlencoded());
+
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
-const expressLayout = require('express-ejs-layouts');
-const { urlencoded } = require('express');
-// const MongoStore = require('connect-mongo');
-// before the routes get loaded we need to use epressLayout
 app.use(expressLayout);
 
+// extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-
+const { urlencoded } = require('express');
+// SET UP VIEW ENGINE
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// mongo store is used to store the session cookie in the db
 app.use(session({
     name: 'codeial',
+    // TODO change the secret before deployment in production mode
     secret: 'something',
     saveUninitialiazed: false,
     resave: false,

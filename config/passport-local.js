@@ -1,5 +1,5 @@
 const passport  = require('passport');
-const localStrategy = require('passport-local').Strategy;
+const localStrategy = require('passport-local');
 const User = require('../models/userModel');
 
 // Authenticating User
@@ -24,12 +24,13 @@ function(email, password, done){
 
 // serializeUser : putting user id in session cookie
 passport.serializeUser(function(user, done){
+    console.log(user);
     done(null, user.id);
 });
 
 // deserializeUser : taking out user info from cookie
 passport.deserializeUser(function(id, done){
-    User.findById(id, function(err, User){
+    User.findById(id, function(err, user){
         if(err){
             console.log('Error infinding user');
             return done(err);
@@ -40,10 +41,13 @@ passport.deserializeUser(function(id, done){
 
 passport.checkAuthentication = function(req, res, next)
 {
+    console.log(req.user);
+    console.log("Inside check authentication.")
     if(req.isAuthenticated()){
         return next();
     }
-    return res.redirect('user/sign-in');
+    // if the user is not signed in
+    return res.redirect('/user/sign-in');
 }
 
 passport.setAuthenticatedUser = function(req, res, next)
