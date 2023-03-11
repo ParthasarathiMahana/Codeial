@@ -15,7 +15,7 @@ module.exports.signUp = function(req, res){
 module.exports.signIn = function(req, res){
     if(req.isAuthenticated())
     {
-        return res.redirect('user',{title: "User page"});
+        return res.render('user',{title: "User page"});
     }
     return res.render('signIn',{title: "User Signin page"});
 }
