@@ -17,12 +17,7 @@ module.exports.home = function(req, res)
             path: 'user'
         }
 })
-// return res.render('home', {
-//     title: "Codeial | Home",
-//     posts:  posts
-    
-// });
 .exec(function(err, posts){
-        return res.render('home',{title: "Home", posts:posts});
+        return res.render('home.ejs',{title: "Home", posts:posts});
     });
 }
