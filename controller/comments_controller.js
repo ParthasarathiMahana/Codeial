@@ -25,6 +25,7 @@ module.exports.create = function(req, res){
 
 
 module.exports.destroy = function(req,res){
+
     Comment.findById(req.params.id, function(err, comment){
         if(comment.user == req.user.id){
             let postId = comment,post;
@@ -36,6 +37,7 @@ module.exports.destroy = function(req,res){
                 })
         }
         else{
+            console.log(Post.findById(req.user)._conditions._id._id);
             return res.redirect('back');
         }
     });
