@@ -1,0 +1,21 @@
+<header>
+    <nav>
+        <div id="header-container">
+            <div class="mini-logo">
+                <a href='/'>
+                    codeial
+                </a>
+            </div>
+    
+            <ul type="none" id="list-options">
+                <% if(locals.user){%>
+                    <li><a href="/user/profile/<%=user.id%>"><%= user.name%></a></li>
+                    <li><a href="/user/sign-out">SignOut</a></li>
+                <%}else{%>
+                    <li><a href="/user/sign-in">SignIn</a></li>
+                    <li><a href="/user/sign-up">SignUp</a></li>
+                <%}%>
+            </ul>
+        </div>
+    </nav>
+</header>

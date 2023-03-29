@@ -1,0 +1,36 @@
+header{
+    width: 100%;
+    margin-bottom: 1rem;
+nav{
+    background-color: #2196f3;
+    height: 3rem;
+    #header-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .mini-logo{
+        margin-top: 0.5rem;
+            a{
+                font-weight: 700;
+                font-size: 2rem;
+                text-decoration: none;
+                color: white;
+                font-family: sans-serif;
+                margin-left: 1rem;
+            }
+    }
+    #list-options{
+        li{
+            display: inline-block;
+            a{
+                font-weight: 300;
+                font-size: 1rem;
+                text-decoration: none;
+                color: white;
+                font-family: sans-serif;
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+}

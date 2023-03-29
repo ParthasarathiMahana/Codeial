@@ -1,0 +1,9 @@
+footer {
+  background-color: #808080;
+  height: 2rem;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center; }
+  footer div {
+    margin-left: 1rem; }

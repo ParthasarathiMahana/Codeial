@@ -1,0 +1,27 @@
+header {
+  width: 100%;
+  margin-bottom: 1rem; }
+  header nav {
+    background-color: #2196f3;
+    height: 3rem; }
+    header nav #header-container {
+      display: flex;
+      justify-content: space-between; }
+    header nav .mini-logo {
+      margin-top: 0.5rem; }
+      header nav .mini-logo a {
+        font-weight: 700;
+        font-size: 2rem;
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+        margin-left: 1rem; }
+    header nav #list-options li {
+      display: inline-block; }
+      header nav #list-options li a {
+        font-weight: 300;
+        font-size: 1rem;
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+        margin-right: 1rem; }
