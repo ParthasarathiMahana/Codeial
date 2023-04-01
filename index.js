@@ -10,6 +10,8 @@ const session = require('express-session');
 const passport = require('./config/passport-local');
 const MongoStore = require('connect-mongo')(session);
 
+const passportJWT = require('./config/passport-jwt-strategy');
+
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const custMware = require('./config/middleware');
